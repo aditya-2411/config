@@ -2,11 +2,13 @@ spring:
   config:
     activate:
       on-profile: prod
-spring:
   jpa:
     show-sql: false
+  boot:
+    admin:
+      client:
+        enabled: true
 
-logging.level.org.springframework.web: INFO
 
 
 secrets:
@@ -14,8 +16,8 @@ secrets:
 
 #spring.datasource.hikari.leak-detection-threshold: 1000
 
-spring.boot.admin.client.enabled: true
-#spring.boot.admin.client.url: http://172.31.18.182:8093
+
+
 
 
 # spring.datasource:
@@ -41,7 +43,10 @@ logging:
   file: /home/ubuntu/logs/leadsquaredapi.log
   pattern:
     dateformat: yyyy-MM-dd HH:mm:ss.SSS,IST
-
+  level:
+    org:
+      springframework:
+        web: INFO
 cloud.aws.stack.auto:  false
 
 logging.level.org.hibernate.SQL: INFO
