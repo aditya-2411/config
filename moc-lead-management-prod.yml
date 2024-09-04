@@ -1,13 +1,50 @@
+spring.profiles: prod
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/mydb
-    username: myuser4
-    password: mypassword4
   jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    show-sql: false
 
+logging.level.org.springframework.web: INFO
+
+
+secrets:
+  filePath: file:///etc/config/secrets
+
+#spring.datasource.hikari.leak-detection-threshold: 1000
+
+spring.boot.admin.client.enabled: true
+#spring.boot.admin.client.url: http://172.31.18.182:8093
+
+
+# spring.datasource:
+#  url: 'jdbc:postgresql://13.232.178.111:5432/moc_leadsquared' ## 13.127.160.112 52.66.202.214 172.31.29.62
+  #spring.datasource.driver-class-name=org.postgresql.Driver
+leadsquared:
+  apihost: "https://api-in21.leadsquared.com/v2"
+
+
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+#  client:
+#    serviceUrl:
+#      defaultZone: http://172.31.20.154:8761/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
+server.tomcat.basedir: /home/ubuntu/logs/tomcat
 logging:
-  level:
-    root: INFO
+  file: /home/ubuntu/logs/leadsquaredapi.log
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS,IST
+
+cloud.aws.stack.auto:  false
+
+logging.level.org.hibernate.SQL: INFO
+#logging.level.org.hibernate.type.descriptor.sql.BasicBinder: INFO
+#http://172.31.20.17:9091/scheduler/customers/bulk/update
+customersdata:
+  api:
+    host: http://172.31.20.17:9091
+    #host: http://moc-leads-api
